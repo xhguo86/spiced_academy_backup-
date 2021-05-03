@@ -1,0 +1,178 @@
+CREATE TABLE categories (
+            categoryID INT,
+            categoryName VARCHAR,
+            description VARCHAR,
+            picture VARCHAR 
+);
+\copy categories FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/categories.csv' DELIMITER ',' CSV HEADER;
+
+categories 
+
+
+
+CREATE TABLE categories (
+        categoryID INT,
+        categoryName VARCHAR,
+        description VARCHAR,
+        picture VARCHAR
+);
+\copy categories FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/categories.csv' DELIMITER ',' CSV HEADER;
+
+customers 
+
+
+
+CREATE TABLE customers (
+        customerID VARCHAR,
+        companyName VARCHAR,
+        contactName VARCHAR,
+        contactTitle VARCHAR,
+        address VARCHAR,
+        city VARCHAR,
+        region VARCHAR,
+        postalCode VARCHAR,
+        country VARCHAR,
+        phone VARCHAR,
+        fax VARCHAR
+);
+\copy customers FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/customers.csv' DELIMITER ',' CSV HEADER;
+
+
+
+CREATE TABLE employee_territories (
+        employeeID INT,
+        territoryID INT
+);
+\copy employee_territories FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/employee_territories.csv' DELIMITER ',' CSV HEADER;
+
+employees 
+
+
+
+CREATE TABLE employees (
+        employeeID INT,
+        lastName VARCHAR,
+        firstName VARCHAR,
+        title VARCHAR,
+        titleOfCourtesy VARCHAR,
+        birthDate TIMESTAMP,
+        hireDate TIMESTAMP,
+        address VARCHAR,
+        city VARCHAR,
+        region VARCHAR,
+        postalCode VARCHAR,
+        country VARCHAR,
+        homePhone VARCHAR,
+        extension INT,
+        photo VARCHAR,
+        notes VARCHAR,
+        reportsTo NUMERIC,
+        photoPath VARCHAR
+);
+\copy employees FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/employees.csv' DELIMITER ',' CSV HEADER NULL 'NULL';
+
+order_details 
+
+
+
+CREATE TABLE order_details (
+        orderID INT,
+        productID INT,
+        unitPrice NUMERIC,
+        quantity INT,
+        discount NUMERIC
+);
+\copy order_details FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/order_details.csv' DELIMITER ',' CSV HEADER;
+
+orders 
+
+
+
+CREATE TABLE orders (
+        orderID INT,
+        customerID VARCHAR,
+        employeeID INT,
+        orderDate TIMESTAMP,
+        requiredDate TIMESTAMP,
+        shippedDate TIMESTAMP,
+        shipVia INT,
+        freight NUMERIC,
+        shipName VARCHAR,
+        shipAddress VARCHAR,
+        shipCity VARCHAR,
+        shipRegion VARCHAR,
+        shipPostalCode VARCHAR,
+        shipCountry VARCHAR
+);
+\copy orders FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/orders.csv' DELIMITER ',' CSV HEADER NULL 'NULL';
+
+products 
+
+
+
+CREATE TABLE products (
+        productID INT,
+        productName VARCHAR,
+        supplierID INT,
+        categoryID INT,
+        quantityPerUnit VARCHAR,
+        unitPrice NUMERIC,
+        unitsInStock INT,
+        unitsOnOrder INT,
+        reorderLevel INT,
+        discontinued BOOL
+);
+\copy products FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/products.csv' DELIMITER ',' CSV HEADER;
+
+regions 
+
+
+
+CREATE TABLE regions (
+        regionID INT,
+        regionDescription VARCHAR
+);
+\copy regions FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/regions.csv' DELIMITER ',' CSV HEADER;
+
+shippers 
+
+
+
+CREATE TABLE shippers (
+        shipperID INT,
+        companyName VARCHAR,
+        phone VARCHAR
+);
+\copy shippers FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/shippers.csv' DELIMITER ',' CSV HEADER;
+
+suppliers 
+
+
+
+CREATE TABLE suppliers (
+    supplierID INT,
+    companyName VARCHAR,
+    contactName VARCHAR,
+    contactTitle VARCHAR,
+    address VARCHAR,
+    city VARCHAR,
+    region VARCHAR,
+    postalCode VARCHAR,
+    country VARCHAR,
+    phone VARCHAR,
+    fax VARCHAR,
+    homePage VARCHAR
+);
+\copy suppliers FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/suppliers.csv' DELIMITER ',' CSV HEADER;
+
+
+
+
+CREATE TABLE territories (
+        territoryID INT,
+        territoryDescription VARCHAR,
+        regionID INT
+);
+\copy territories FROM '/home/guo/spiced_projects/vanilla-vectors-student-code/week_05/data/territories.csv' DELIMITER ',' CSV HEADER;
+
+

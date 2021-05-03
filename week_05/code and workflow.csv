@@ -1,0 +1,41 @@
+# upload file *.sql (create_tables.sql) to address of virtual PC in cloud (18.184.164.105)
+(base) guo@guo-ThinkCentre-M80q:~/spiced_projects/vanilla-vectors-student-code/week_05$:
+
+	 scp -i aws_guo.pem create_tables.sql ubuntu@18.184.164.105:.
+# download
+	scp -i aws_guo.pem ubuntu@18.184.164.105:output.txt .	 
+
+# log to the virtual PC(18.184.164.105) with key(aws_guo.pem)
+(base) guo@guo-ThinkCentre-M80q:~/spiced_projects/vanilla-vectors-student-code/week_05$:
+chmod 400 vanillavectors.pem
+
+ssh -i aws_guo.pem ubuntu@18.184.164.105
+ssh -i aws_guo.pem ubuntu@18.184.164.105
+
+# Get the Metabase Source Code over to the EC2 Machine
+wget https://downloads.metabase.com/v0.35.4/metabase.jar
+#install java
+sudo apt-get install -y openjdk-11-jre-headless
+	 
+Glossary
+server: a program (or computer) that another program on another computer can connect to
+EC2 : elastic computing cloud - a AWS computer where you may install stuff
+RDS : relational database service - the AWS rent-a-Postgres
+
+#
+pg_dump : command-line tool to backup your database to a .sql file
+pg_dump northwind > nw.sql
+
+psql -f : runs all commands in a SQL file
+psql -h xguo.cnfdvywe3fe0.eu-central-1.rds.amazonaws.com -p 5432 -U postgres -d postgres -f nw.sql
+
+ssh : secure shell, connects to a remote machine through the command line
+scp : like ssh but for up and downloading files
+key pair : stored in a .pem file, more secure than a password
+
+info
+18.184.164.105
+
+xguo
+Gxxnn********
+xguo.cnfdvywe3fe0.eu-central-1.rds.amazonaws.com
