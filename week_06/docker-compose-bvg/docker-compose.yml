@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+
+  bvg:
+    build: bvg/
+    volumes:
+      - ./bvg/:/app
+    depends_on:
+      - my_mongodb
+
+  my_postgres:
+    image: postgres:12.6 #<-- this is literally the name of the image on DockerHub
+
+    ports:
+      - 5555:5432
+
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=my_bvg_data
+
+  my_mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+
+
+  etl_bvg:
+    build: etl_bvg/
+    volumes:
+      - ./etl_bvg/:/app
+    depends_on:
+      - my_mongodb
+      - my_postgres
+
+
+  slackbot_bvg:
+    build: slackbot_bvg/
+    volumes:
+      - ./slackbot_bvg/:/app
+    depends_on:
+      - my_postgres
